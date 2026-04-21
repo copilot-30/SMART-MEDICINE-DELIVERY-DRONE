@@ -9,6 +9,7 @@ Node.js + Express backend for ESP32-based medicine delivery telemetry, command d
 - `src/routes/*` - API routes (`health`, `devices`, `telemetry`, `commands`, `dashboard`)
 - `src/store/memoryStore.js` - in-memory device/telemetry/command state
 - `src/middleware/*` - auth and error middleware
+- `database/` - PostgreSQL config, migrations, seeding, and CLI runners
 - `esp32/smart_medicine_drone.ino` - ESP32 firmware sample
 - `esp32/wiring.md` - hardware wiring and power notes
 
@@ -21,6 +22,21 @@ Node.js + Express backend for ESP32-based medicine delivery telemetry, command d
 
 - `PORT` - Express port (default `8080`)
 - `DEVICE_SHARED_TOKEN` - optional shared device token checked via `x-device-token` header
+- `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`, `DB_SSL` - PostgreSQL connection
+- `DATABASE_URL` - optional full connection string alternative to `DB_*`
+
+## Database CLI (PostgreSQL)
+
+Run from `backend` folder:
+
+- `node drone db:migrate` -> Create database tables (runs all migrations)
+- `node drone db:fresh` -> Recreate all tables (⚠️ ALL DATA GONE)
+- `node drone db:seed` -> Create default data (admin, services, schedule)
+- `node drone db:setup` -> Fresh install: migrate + seed (for new devices)
+- `node drone db:status` -> Show migration status
+- `node drone db:rollback` -> Rollback last migration
+- `node drone db:create` -> Create the database if it doesn't exist
+- `node drone.js db:drop` -> Drop the configured database
 
 ## API contract (core)
 
