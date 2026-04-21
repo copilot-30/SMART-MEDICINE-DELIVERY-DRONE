@@ -25,7 +25,7 @@ Commands:
   db:create    Create the database if it doesn't exist.
   db:migrate   Run all pending migrations.
   db:fresh     Recreate all tables (ALL DATA WILL BE LOST).
-  db:seed      Insert default seed data (admin, services, schedule).
+  db:seed      Insert default seed data (admin user).
   db:setup     Fresh install: db:create + db:migrate + db:seed.
   db:status    Show migration status.
   db:rollback  Rollback the last applied migration.

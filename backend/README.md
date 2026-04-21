@@ -31,7 +31,7 @@ Run from `backend` folder:
 
 - `node drone db:migrate` -> Create database tables (runs all migrations)
 - `node drone db:fresh` -> Recreate all tables (⚠️ ALL DATA GONE)
-- `node drone db:seed` -> Create default data (admin, services, schedule)
+- `node drone db:seed` -> Create default data (admin user)
 - `node drone db:setup` -> Fresh install: migrate + seed (for new devices)
 - `node drone db:status` -> Show migration status
 - `node drone db:rollback` -> Rollback last migration
